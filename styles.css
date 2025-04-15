@@ -1,0 +1,222 @@
+:root {
+    --primary-color: #00ffff;
+    --primary-dark: rgba(0, 255, 255, 0.1);
+    --primary-light: rgba(0, 255, 255, 0.3);
+    --accent-start: rgba(0, 255, 127, 0.2);
+    --accent-pause: rgba(255, 223, 0, 0.2);
+    --accent-reset: rgba(255, 69, 0, 0.2);
+    --bg-gradient-1: #1a1a2e;
+    --bg-gradient-2: #0f0f1a;
+}
+
+/* Theme Colors */
+body.purple-theme {
+    --primary-color: #bf00ff;
+    --primary-dark: rgba(191, 0, 255, 0.1);
+    --primary-light: rgba(191, 0, 255, 0.3);
+    --bg-gradient-1: #2a1a2e;
+    --bg-gradient-2: #1a0f1a;
+}
+
+body.green-theme {
+    --primary-color: #00ff9d;
+    --primary-dark: rgba(0, 255, 157, 0.1);
+    --primary-light: rgba(0, 255, 157, 0.3);
+    --bg-gradient-1: #1a2e1a;
+    --bg-gradient-2: #0f1a0f;
+}
+
+body.orange-theme {
+    --primary-color: #ff6b00;
+    --primary-dark: rgba(255, 107, 0, 0.1);
+    --primary-light: rgba(255, 107, 0, 0.3);
+    --bg-gradient-1: #2e1a1a;
+    --bg-gradient-2: #1a0f0f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%);
+    color: #fff;
+}
+
+.container {
+    text-align: center;
+    background: rgba(16, 16, 32, 0.7);
+    padding: 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 40px rgba(var(--primary-color), 0.1),
+                inset 0 0 20px rgba(var(--primary-color), 0.05);
+    border: 1px solid rgba(var(--primary-color), 0.1);
+}
+
+.theme-selector {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.theme-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.theme-btn.active {
+    border-color: white;
+    transform: scale(1.1);
+}
+
+.cyan-theme {
+    background: #00ffff;
+}
+
+.purple-theme {
+    background: #bf00ff;
+}
+
+.green-theme {
+    background: #00ff9d;
+}
+
+.orange-theme {
+    background: #ff6b00;
+}
+
+h1 {
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+.timer {
+    font-size: 5rem;
+    font-weight: 200;
+    margin: 2rem 0;
+    text-shadow: 0 0 20px var(--primary-color);
+    font-family: 'Courier New', monospace;
+    letter-spacing: 5px;
+}
+
+.controls, .mode-switches {
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+button {
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: var(--primary-dark);
+    color: white;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 300;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--primary-dark);
+}
+
+button:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--primary-dark);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button.active {
+    background: var(--primary-light);
+    box-shadow: 0 0 20px var(--primary-dark);
+}
+
+#start {
+    background: var(--accent-start);
+    border-color: rgba(0, 255, 127, 0.3);
+}
+
+#start:hover {
+    background: rgba(0, 255, 127, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 255, 127, 0.2);
+}
+
+#pause {
+    background: var(--accent-pause);
+    border-color: rgba(255, 223, 0, 0.3);
+}
+
+#pause:hover {
+    background: rgba(255, 223, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(255, 223, 0, 0.2);
+}
+
+#reset {
+    background: var(--accent-reset);
+    border-color: rgba(255, 69, 0, 0.3);
+}
+
+#reset:hover {
+    background: rgba(255, 69, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(255, 69, 0, 0.2);
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.timer.running {
+    animation: pulse 2s infinite;
+}
+
+.datetime {
+    margin: 1rem 0;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+}
+
+.date {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px var(--primary-color);
+}
+
+.time {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-shadow: 0 0 15px var(--primary-color);
+} 
